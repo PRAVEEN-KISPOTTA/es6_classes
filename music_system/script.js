@@ -7,17 +7,37 @@ function main() {
   
     //Create a Class Song extending the Media with proper constructor ,properties and methods
     class Song extends Media{
-        constructor(){
-            this.popSong = new PopSong();
-            this.rockSong = new RockSong();
+        
+        title;
+        artist;
+        duration;
+
+        constructor(title, artist, duration){
+            // this.popSong = new PopSong();
+            // this.rockSong = new RockSong();
+            this.title = title;
+            this.artist = artist;
+            this.duration = duration
+        }
+
+        getTitle(){
+            return this.title;
+        }
+
+        getArtist(){
+            return this.artist;
+        }
+
+        getDuration(){
+            return this.duration;
         }
     }
-
-    class PopSong{
+    //Create class PopSong and RockSong using Song class
+    class PopSong extends Media{
 
     }
 
-    class RockSong{
+    class RockSong extends Media{
 
     }
   
@@ -26,15 +46,16 @@ function main() {
 
     }
 
-    class NewsPodcast{
+    class NewsPodcast extends PodCast{
 
     }
 
-    class ComedyPodcast{
-        
+    class ComedyPodcast extends PodCast{
+
     }
   
-    //Create class PopSong and PockSong using Song class
+
+
   
     //Create NewsPodcast and ComedyPodcast using the Podcast class.
   
