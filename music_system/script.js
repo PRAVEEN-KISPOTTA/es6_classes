@@ -3,11 +3,6 @@ function main() {
     // Crete your class media with proper constructor properties and methods as mentioned.
     class Media{
 
-    }
-  
-    //Create a Class Song extending the Media with proper constructor ,properties and methods
-    class Song extends Media{
-        
         title;
         artist;
         duration;
@@ -17,7 +12,7 @@ function main() {
             // this.rockSong = new RockSong();
             this.title = title;
             this.artist = artist;
-            this.duration = duration
+            this.duration = duration;
         }
 
         getTitle(){
@@ -32,32 +27,124 @@ function main() {
             return this.duration;
         }
     }
-    //Create class PopSong and RockSong using Song class
-    class PopSong extends Media{
+  
+    //Create a Class Song extending the Media with proper constructor ,properties and methods
+    class Song extends Media{
+        album;
+        genre;
 
+        constructor(title, artist, duration, album, genre){
+            super(title, artist, duration);
+            this.album = album;
+            this.genre = genre;
+        }
+
+        getAlbum(){
+            return this.album;
+        }
+
+        getGenre(){
+            return this.genre;
+        }
+    }
+    //Create class PopSong and RockSong using Song class
+    class PopSong extends Song{
+        danceability;
+        energy;
+
+        constructor(title, artist, duration,album, genre, danceability, energy){
+            super(title, artist, duration,album, genre);
+            this.danceability = danceability;
+            this.energy = energy;
+        }
+
+        getDanceability(){
+            return this.danceability;
+        }
+
+        getEnergy(){
+            return this.energy;
+        }
     }
 
-    class RockSong extends Media{
+    class RockSong extends Song{
+        distortion;
+        tempo;
 
+        constructor(title, artist, duration,album, genre, distortion, tempo){
+            super(title, artist, duration,album, genre);
+            this.distortion = distortion;
+            this.tempo = tempo;
+        }
+
+        getDistortion(){
+            return this.distortion;
+        }
+
+        getTempo(){
+            return this.tempo;
+        }
     }
   
     //Create a class Podcast inherting from the MEdia
-    class PodCast extends Media{
+    class Podcast extends Media{
+        host;
+        topic;
 
+        constructor(title, artist, duration, host, topic){
+            super(title, artist, duration);
+            this.host = host;
+            this.topic = topic;
+        }
+
+        getHost(){
+            return this.host;
+        }
+
+        getTopic(){
+            return this.topic;
+        }
     }
-
-    class NewsPodcast extends PodCast{
-
-    }
-
-    class ComedyPodcast extends PodCast{
-
-    }
-  
-
-
-  
+    
     //Create NewsPodcast and ComedyPodcast using the Podcast class.
+    class NewsPodcast extends Podcast{
+        source;
+        rating;
+
+        constructor(title, artist, duration, host, topic, source, rating){
+            super(title, artist, duration, host, topic);
+            this.source = source;
+            this.rating = rating;
+        }
+
+        getSource(){
+            return this.source;
+        }
+
+        getRating(){
+            return this.rating;
+        }
+    }
+
+    class ComedyPodcast extends Podcast{
+        comedian;
+        rating;
+
+        constructor(title, artist, duration, host, topic, comedian, rating){
+            super(title, artist, duration, host, topic);
+            this.comedian = comedian;
+            this.rating = rating;
+        }
+
+        getComedian(){
+            return this.comedian;
+        }
+
+        getRating(){
+            return this.rating;
+        }
+    }
+
   
     //Your code will be evaluated on basis of these operation.
     const popSong = new PopSong(
@@ -138,4 +225,6 @@ function main() {
       ComedyPodcast
     };
   }
+
+  main();
   
