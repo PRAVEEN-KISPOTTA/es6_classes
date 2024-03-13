@@ -13,9 +13,98 @@ function main(){
             this.#password = password;
             this.#posts = [];
         }
+
+        get getName(){
+          return this.#name;
+        }
+
+        set setName(data){
+          this.#name = data;
+        }
+
+        get getEmail(){
+          return this.#email;
+        }
+
+        set setEmail(data){
+          this.#email = data;
+        }
+
+        get getPassword(){
+          return this.#password;
+        }
+
+        set setPassword(data){
+          this.#password = data;
+        }
+
+        addPost(obj){
+          return this.#posts.push(obj);
+        }
+
+        deletePost(obj){
+          return this.#posts.splice(obj, 1);
+        }
+
+        displayPosts(){
+          return this.#posts.map(post=>{
+            console.log(post)
+          })
+        }
     }
     
     //Create your class "Post" here inheritting the User class with all the properties and methods as mentioned
+
+    class Post extends User{
+      #title;
+      #content;
+      #date;
+      #likeCount;
+
+      constructor(name, email, password, title, content, date){
+        super(name, email, password);
+        this.#title = title;
+        this.#content = content;
+        this.#date = date;
+        this.#likeCount = 0;
+      }
+
+      get getTitle(){
+        return this.#title;
+      }
+
+      set setTitle(data){
+        this.#title = data;
+      }
+
+      get getContent(){
+        return this.#content;
+      }
+
+      set setContent(data){
+        this.#content = data;
+      }
+
+      get getDate(){
+        return this.#date;
+      }
+
+      set setDate(data){
+        this.#date = data;
+      }
+
+      addLike(){
+        this.#likeCount++;
+      }
+
+      displayDetails(){
+        console.log(`Owner: ${this.getName}`);
+        console.log(`Title: ${this.getTitle}`);
+        console.log(`Content: ${this.getContent}`);
+        console.log(`Date: ${this.getDate}`);
+        console.log(`Likes: ${this.#likeCount}`);
+      }
+    }
       const user1 = new User("John", "john@example.com", "password123");
       const post1 = new Post(
         "John", 
