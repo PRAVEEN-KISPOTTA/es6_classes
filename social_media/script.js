@@ -14,28 +14,28 @@ function main(){
             this.#posts = [];
         }
 
-        get getName(){
+        get name(){
           return this.#name;
         }
 
-        set setName(data){
-          this.#name = data;
+        set name(name){
+          this.#name = name;
         }
 
-        get getEmail(){
+        get email(){
           return this.#email;
         }
 
-        set setEmail(data){
-          this.#email = data;
+        set email(email){
+          this.#email = email;
         }
 
-        get getPassword(){
+        get password(){
           return this.#password;
         }
 
-        set setPassword(data){
-          this.#password = data;
+        set password(password){
+          this.#password = password;
         }
 
         addPost(obj){
@@ -43,12 +43,16 @@ function main(){
         }
 
         deletePost(obj){
-          return this.#posts.splice(obj, 1);
+          const index = this.#posts.indexOf(post);
+          if (index !== -1) {
+            this.#posts.splice(index, 1);
+          }
         }
 
         displayPosts(){
-          return this.#posts.map(post=>{
-            console.log(post)
+          console.log(`Posts by ${this.#name}:`)
+          this.#posts.forEach(post=>{
+            console.log(`- ${post.title}`)
           })
         }
     }
@@ -69,40 +73,44 @@ function main(){
         this.#likeCount = 0;
       }
 
-      get getTitle(){
+      get title(){
         return this.#title;
       }
 
-      set setTitle(data){
-        this.#title = data;
+      set title(title){
+        this.#title = title;
       }
 
-      get getContent(){
+      get content(){
         return this.#content;
       }
 
-      set setContent(data){
-        this.#content = data;
+      set content(content){
+        this.#content = content;
       }
 
-      get getDate(){
+      get date(){
         return this.#date;
       }
 
-      set setDate(data){
-        this.#date = data;
+      set date(date){
+        this.#date = date;
+      }
+
+      get likeCount(){
+        return this.#likeCount;
       }
 
       addLike(){
-        this.#likeCount++;
+        return this.#likeCount++;
       }
 
       displayDetails(){
-        console.log(`Owner: ${this.getName}`);
-        console.log(`Title: ${this.getTitle}`);
-        console.log(`Content: ${this.getContent}`);
-        console.log(`Date: ${this.getDate}`);
-        console.log(`Likes: ${this.#likeCount}`);
+        console.log(`Owner: ${this.name}`);
+        console.log(`Title: ${this.title}`);
+        console.log(`Content: ${this.content}`);
+        console.log(`Date: ${this.date}`);
+        console.log(`Likes: ${this.likeCount}`);
       }
     }
       const user1 = new User("John", "john@example.com", "password123");
@@ -111,7 +119,7 @@ function main(){
         "john@example.com",
         "password123",
         "My first post",
-        "Lorem ipsum dolor sit amet",
+        "Loremipsum dolor sit amet",
         "2021-01-01"
       );
       const post2 = new Post(
